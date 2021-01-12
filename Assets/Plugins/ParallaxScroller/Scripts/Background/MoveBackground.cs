@@ -15,7 +15,15 @@ namespace Background{
         // Start is called before the first frame update
         void Start()
         {
+            foreach (var background in backgroundSprites){
+                
+            }
+            //check if sprites need to be flipped
+            
         
+            //check if background sprite needs to be cloned to fill entire screen with margin
+            
+            
         }
 
         // Update is called once per frame
