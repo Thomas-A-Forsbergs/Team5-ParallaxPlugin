@@ -12,6 +12,7 @@ namespace Plugins.ParallaxScroller.Scripts.Background{
         Vector3 offset;
         float textureUnitSizeX;
         float textureUnitSizeY;
+        float screenWidthUnits;
         
         void Start(){
             cameraTransform = Camera.main.transform;
@@ -22,8 +23,12 @@ namespace Plugins.ParallaxScroller.Scripts.Background{
             textureUnitSizeX = texture2D.width / sprite.pixelsPerUnit;
             textureUnitSizeY = texture2D.height / sprite.pixelsPerUnit;
             offset = cameraTransform.position - transform.position;
-            var numberOfRepeats = 0.05f * Screen.width / textureUnitSizeX;
+            //var numberOfRepeats = 0.05f * Screen.width / textureUnitSizeX;
+            screenWidthUnits = 2 * Camera.main.orthographicSize * Screen.width / Screen.height;
+            var numberOfRepeats = 6 * screenWidthUnits / textureUnitSizeX;
             spriteRenderer.size *= new Vector2(numberOfRepeats,1);
+            
+            //
         }
         
         void LateUpdate(){
