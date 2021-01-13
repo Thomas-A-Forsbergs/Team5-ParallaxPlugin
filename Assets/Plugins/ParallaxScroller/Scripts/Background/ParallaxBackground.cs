@@ -2,13 +2,8 @@
 
 namespace Plugins.ParallaxScroller.Scripts.Background{
     public class ParallaxBackground : MonoBehaviour{
-        //TODO: Refactor code!!!!!!!!!!!
-        Vector2 backgroundSpeed => new Vector2(depth,depth) + movementSpeed;
-        // depth relative to player, perspective depth relative to player
-        [SerializeField,Range(-1,1)] float depth;
-        
-        //[SerializeField,Range(-1,1)] float depthY;
-        [SerializeField] Vector2 movementSpeed; //special feature, a could have
+        //TODO: Refactor code!
+        [SerializeField,Range(-1,1)] float depthRelativeToPlayer;
         [SerializeField] bool repeatingBackgroundX;
         [SerializeField] bool repeatingBackgroundY;
         [SerializeField] bool backgroundFollowCamera;
@@ -21,11 +16,14 @@ namespace Plugins.ParallaxScroller.Scripts.Background{
         void Start(){
             cameraTransform = Camera.main.transform;
             lastCameraPosition = cameraTransform.position;
-            var sprite = GetComponent<SpriteRenderer>().sprite;
+            var spriteRenderer = GetComponent<SpriteRenderer>();
+            var sprite = spriteRenderer.sprite;
             var texture2D = sprite.texture;
             textureUnitSizeX = texture2D.width / sprite.pixelsPerUnit;
             textureUnitSizeY = texture2D.height / sprite.pixelsPerUnit;
             offset = cameraTransform.position - transform.position;
+            var numberOfRepeats = 0.05f * Screen.width / textureUnitSizeX;
+            spriteRenderer.size *= new Vector2(numberOfRepeats,1);
         }
         
         void LateUpdate(){
@@ -34,8 +32,7 @@ namespace Plugins.ParallaxScroller.Scripts.Background{
                 return;
             }
             var deltaMovement = cameraTransform.position - lastCameraPosition;
-            transform.position += new Vector3(deltaMovement.x * backgroundSpeed.x,
-                deltaMovement.y * backgroundSpeed.y, 0);
+            transform.position += new Vector3(deltaMovement.x * depthRelativeToPlayer, deltaMovement.y * depthRelativeToPlayer, 0);
             lastCameraPosition = cameraTransform.position;
             if (repeatingBackgroundX)
                 if (Mathf.Abs(cameraTransform.position.x - transform.position.x) >= textureUnitSizeX){
@@ -48,12 +45,6 @@ namespace Plugins.ParallaxScroller.Scripts.Background{
                     var offsetPositionY = (cameraTransform.position.y - transform.position.y) % textureUnitSizeY;
                     transform.position = new Vector3(cameraTransform.position.x, transform.position.y + offsetPositionY);
                 }
-
         }
-
-        ///Inspector:
-        ///Add layer:
-        ///Sprite, layer order, static, speed
-        ///Update button.
     }
 }

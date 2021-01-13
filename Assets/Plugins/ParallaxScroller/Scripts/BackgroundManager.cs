@@ -4,17 +4,12 @@ namespace Plugins.ParallaxScroller.Scripts{
     [ExecuteInEditMode]
     public class BackgroundManager : MonoBehaviour{
         /*
-        Sprite
-        order in layer
-        FollowCamera:
-        (sprite renderer draw mode: Simple)
+        TODO:
         Add/update button
         
-        Follow x and/or y:
-        Speed multiplier x and/or y
+        repeatingBackground x and/or y:
         Simple:
         tile:
-        Repeat width and/or height x times
         */
 
         [Header("Cool box")]
@@ -23,11 +18,10 @@ namespace Plugins.ParallaxScroller.Scripts{
         [Tooltip("Values larger than 0 is closer to camera")]
         [SerializeField] int orderInLayer;
         [SerializeField] SpriteDrawMode spriteDrawMode;
-        [Header("Background settings")]
-        [Tooltip("X means: Y means:")]
-        [SerializeField] Vector2 backgroundSpeed;
-        //TODO: hover tooltip
         
+        [Header("Background settings")]
+        [Tooltip("")]
+        [SerializeField,Range(-1,1)] float depthRelativeToPlayer;
         [SerializeField] bool backgroundFollowCamera;
         [SerializeField] bool repeatingBackgroundX;
         [SerializeField] bool repeatingBackgroundY;
@@ -38,7 +32,6 @@ namespace Plugins.ParallaxScroller.Scripts{
             spriteRenderer.sprite = sprite;
             spriteRenderer.sortingOrder = orderInLayer;
             spriteRenderer.drawMode = spriteDrawMode;
-            //TODO:Setup!
         }
     }
 }
