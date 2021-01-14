@@ -1,7 +1,7 @@
-﻿using Plugins.ParallaxScroller.Scripts.Background;
+﻿using System;
 using UnityEngine;
 
-namespace Plugins.ParallaxScroller.Scripts{
+namespace Plugins.ParallaxScroller.Scripts.Background{
     [ExecuteInEditMode]
     public class BackgroundManager : MonoBehaviour{
         
@@ -21,21 +21,26 @@ namespace Plugins.ParallaxScroller.Scripts{
         
         public void InstantiateGameObject(){
            
+            if (sprite == null){
+                throw new Exception("Must add sprite before pressing 'Add Layer'"); 
+            }
+            
             var instance = new GameObject();
             instance.AddComponent<SpriteRenderer>();
             instance.AddComponent<ParallaxBackground>();
             instance.transform.parent = this.transform;
             
             var spriteRenderer = instance.GetComponent<SpriteRenderer>();
-            
+            var parallaxBackground = instance.GetComponent<ParallaxBackground>();
             
             spriteRenderer.sprite = sprite;
             spriteRenderer.sortingOrder = orderInLayer;
             spriteRenderer.drawMode = spriteDrawMode;
-            instance.GetComponent<ParallaxBackground>().RepeatingBackgroundX = repeatingBackgroundX;
-            //instance.GetComponent<ParallaxBackground>().RepeatingBackgroundY = repeatingBackgroundY;
-            instance.GetComponent<ParallaxBackground>().BackgroundFollowCamera = backgroundFollowCamera;
-            instance.GetComponent<ParallaxBackground>().DepthRelativeToPlayer = depthRelativeToPlayer;
+            
+            parallaxBackground.RepeatingBackgroundX = repeatingBackgroundX;
+            //parallaxBackground.RepeatingBackgroundY = repeatingBackgroundY;
+            parallaxBackground.BackgroundFollowCamera = backgroundFollowCamera;
+            parallaxBackground.DepthRelativeToPlayer = depthRelativeToPlayer;
 
             instance.name = spriteRenderer.sprite.name;
         }

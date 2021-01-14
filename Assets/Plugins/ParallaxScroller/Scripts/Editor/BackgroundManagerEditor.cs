@@ -1,4 +1,5 @@
-﻿using UnityEditor;
+﻿using Plugins.ParallaxScroller.Scripts.Background;
+using UnityEditor;
 using UnityEngine;
 
 namespace Plugins.ParallaxScroller.Scripts.Editor{
