@@ -23,4 +23,5 @@ Usage
 
 
 Credits
----------
+--------
+Henrik Nyström programming
