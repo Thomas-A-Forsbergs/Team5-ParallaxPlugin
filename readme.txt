@@ -24,10 +24,11 @@ Usage
 
 Credits
 --------
-Henrik Nyström - programming
-Marcus Persson - tester of plug-in
-Thomas Ahlström - programming
-Jimmie Lundin Scherfors - sprite artist and code review
+Henrik Nyström – programming
+Thomas Ahlström – programming
+Joel Ring – programming
+Marcus Persson – tester of plug-in
+Jimmie Lundin Scherfors – sprite artist and code review
 
 Inspiration from:
 Code Monkey - Parallax Infinite Scrolling Background in Unity
