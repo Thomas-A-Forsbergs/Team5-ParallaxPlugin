@@ -72,6 +72,8 @@ sysinfo.txt
 *.apk
 *.unitypackage
 
+!ParallaxSideScroller.unitypackage
+
 # Crashlytics generated file
 crashlytics-build.properties
 
