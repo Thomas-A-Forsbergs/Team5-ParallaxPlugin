@@ -8,10 +8,10 @@ namespace Plugins.ParallaxScroller.Scripts.Background{
             set => repeatingBackgroundX = value;
         }
         
-        public bool RepeatingBackgroundY{
+     /*   public bool RepeatingBackgroundY{
             get => repeatingBackgroundY;
             set => repeatingBackgroundY = value;
-        }
+        }*/
 
         public bool BackgroundFollowCamera{
             get => backgroundFollowCamera;
@@ -27,7 +27,7 @@ namespace Plugins.ParallaxScroller.Scripts.Background{
         //TODO: Refactor code!
         [SerializeField,Range(-1,1)] float depthRelativeToPlayer;
         [SerializeField] bool repeatingBackgroundX;
-        [SerializeField] bool repeatingBackgroundY;
+        //[SerializeField] bool repeatingBackgroundY;
         [SerializeField] bool backgroundFollowCamera;
         Transform cameraTransform;
         Vector3 lastCameraPosition;
@@ -48,6 +48,11 @@ namespace Plugins.ParallaxScroller.Scripts.Background{
             screenWidthUnits = 2 * Camera.main.orthographicSize * Screen.width / Screen.height;
             
             #region Calculate Number of Repeats of Sprite
+
+            if (BackgroundFollowCamera || (DepthRelativeToPlayer >= 1)){
+                return;
+            }
+            
             var numberOfRepeats = Mathf.RoundToInt(4* screenWidthUnits / textureUnitSizeX);
             if (numberOfRepeats < 3){
                 numberOfRepeats = 3;
@@ -73,11 +78,11 @@ namespace Plugins.ParallaxScroller.Scripts.Background{
                     transform.position = new Vector3(cameraTransform.position.x + offsetPositionX, transform.position.y);
                 }
 
-            if (repeatingBackgroundY)
+           /* if (repeatingBackgroundY)
                 if (Mathf.Abs(cameraTransform.position.y - transform.position.y) >= textureUnitSizeY){
                     var offsetPositionY = (cameraTransform.position.y - transform.position.y) % textureUnitSizeY;
                     transform.position = new Vector3(cameraTransform.position.x, transform.position.y + offsetPositionY);
-                }
+                }*/
         }
     }
 }

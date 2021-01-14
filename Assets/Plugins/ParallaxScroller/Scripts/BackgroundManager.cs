@@ -4,15 +4,7 @@ using UnityEngine;
 namespace Plugins.ParallaxScroller.Scripts{
     [ExecuteInEditMode]
     public class BackgroundManager : MonoBehaviour{
-        /*
-        TODO:
-        Add/update button
-        
-        repeatingBackground x and/or y:
-        Simple:
-        tile:
-        */
-
+ 
         [Header("Cool box")]
         [SerializeField] GameObject backgroundPrefab;
         [SerializeField] Sprite sprite;
@@ -25,7 +17,7 @@ namespace Plugins.ParallaxScroller.Scripts{
         [SerializeField,Range(-1,1)] float depthRelativeToPlayer;
         [SerializeField] bool backgroundFollowCamera;
         [SerializeField] bool repeatingBackgroundX = true;
-        [SerializeField] bool repeatingBackgroundY;
+        //[SerializeField] bool repeatingBackgroundY;
         
         public void InstantiateGameObject(){
             var instance = Instantiate(backgroundPrefab, transform);
@@ -34,7 +26,7 @@ namespace Plugins.ParallaxScroller.Scripts{
             spriteRenderer.sortingOrder = orderInLayer;
             spriteRenderer.drawMode = spriteDrawMode;
             instance.GetComponent<ParallaxBackground>().RepeatingBackgroundX = repeatingBackgroundX;
-            instance.GetComponent<ParallaxBackground>().RepeatingBackgroundY = repeatingBackgroundY;
+            //instance.GetComponent<ParallaxBackground>().RepeatingBackgroundY = repeatingBackgroundY;
             instance.GetComponent<ParallaxBackground>().BackgroundFollowCamera = backgroundFollowCamera;
             instance.GetComponent<ParallaxBackground>().DepthRelativeToPlayer = depthRelativeToPlayer;
         }
