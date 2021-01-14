@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c6312b2327dd0547afdb5f5ef52928f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parallaxEffectMultiplier: {x: 0, y: 0}
-  infiniteHorizontal: 0
-  infiniteVertical: 0
-  followCamera: 0
+  depthRelativeToPlayer: 0
+  repeatingBackgroundX: 1
+  repeatingBackgroundY: 0
+  backgroundFollowCamera: 0

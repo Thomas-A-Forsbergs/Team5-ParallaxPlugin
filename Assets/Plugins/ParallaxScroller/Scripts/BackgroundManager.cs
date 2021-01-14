@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Plugins.ParallaxScroller.Scripts.Background;
+using UnityEngine;
 
 namespace Plugins.ParallaxScroller.Scripts{
     [ExecuteInEditMode]
@@ -23,7 +24,7 @@ namespace Plugins.ParallaxScroller.Scripts{
         [Tooltip("")]
         [SerializeField,Range(-1,1)] float depthRelativeToPlayer;
         [SerializeField] bool backgroundFollowCamera;
-        [SerializeField] bool repeatingBackgroundX;
+        [SerializeField] bool repeatingBackgroundX = true;
         [SerializeField] bool repeatingBackgroundY;
         
         public void InstantiateGameObject(){
@@ -32,6 +33,10 @@ namespace Plugins.ParallaxScroller.Scripts{
             spriteRenderer.sprite = sprite;
             spriteRenderer.sortingOrder = orderInLayer;
             spriteRenderer.drawMode = spriteDrawMode;
+            instance.GetComponent<ParallaxBackground>().RepeatingBackgroundX = repeatingBackgroundX;
+            instance.GetComponent<ParallaxBackground>().RepeatingBackgroundY = repeatingBackgroundY;
+            instance.GetComponent<ParallaxBackground>().BackgroundFollowCamera = backgroundFollowCamera;
+            instance.GetComponent<ParallaxBackground>().DepthRelativeToPlayer = depthRelativeToPlayer;
         }
     }
 }

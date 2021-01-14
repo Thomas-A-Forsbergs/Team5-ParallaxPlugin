@@ -2,6 +2,28 @@
 
 namespace Plugins.ParallaxScroller.Scripts.Background{
     public class ParallaxBackground : MonoBehaviour{
+
+        public bool RepeatingBackgroundX{
+            get => repeatingBackgroundX;
+            set => repeatingBackgroundX = value;
+        }
+        
+        public bool RepeatingBackgroundY{
+            get => repeatingBackgroundY;
+            set => repeatingBackgroundY = value;
+        }
+
+        public bool BackgroundFollowCamera{
+            get => backgroundFollowCamera;
+            set => backgroundFollowCamera = value;
+        }
+        
+        public float DepthRelativeToPlayer{
+            get => depthRelativeToPlayer;
+            set => depthRelativeToPlayer = value;
+        }
+ 
+
         //TODO: Refactor code!
         [SerializeField,Range(-1,1)] float depthRelativeToPlayer;
         [SerializeField] bool repeatingBackgroundX;
@@ -23,12 +45,18 @@ namespace Plugins.ParallaxScroller.Scripts.Background{
             textureUnitSizeX = texture2D.width / sprite.pixelsPerUnit;
             textureUnitSizeY = texture2D.height / sprite.pixelsPerUnit;
             offset = cameraTransform.position - transform.position;
-            //var numberOfRepeats = 0.05f * Screen.width / textureUnitSizeX;
             screenWidthUnits = 2 * Camera.main.orthographicSize * Screen.width / Screen.height;
-            var numberOfRepeats = 6 * screenWidthUnits / textureUnitSizeX;
-            spriteRenderer.size *= new Vector2(numberOfRepeats,1);
             
-            //
+            #region Calculate Number of Repeats of Sprite
+            var numberOfRepeats = Mathf.RoundToInt(4* screenWidthUnits / textureUnitSizeX);
+            if (numberOfRepeats < 3){
+                numberOfRepeats = 3;
+            }
+            else{            
+                numberOfRepeats = numberOfRepeats % 2 == 0 ? numberOfRepeats + 1: numberOfRepeats;
+            }
+            spriteRenderer.size *= new Vector2(numberOfRepeats,1);
+            #endregion
         }
         
         void LateUpdate(){
