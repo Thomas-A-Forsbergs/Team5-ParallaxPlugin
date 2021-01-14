@@ -38,7 +38,8 @@ namespace Plugins.ParallaxScroller.Scripts.Background{
             var spriteRenderer = GetComponent<SpriteRenderer>();
             var sprite = spriteRenderer.sprite;
             var texture2D = sprite.texture;
-            textureUnitSizeX = texture2D.width / sprite.pixelsPerUnit;
+            //textureUnitSizeX = texture2D.width / sprite.pixelsPerUnit;
+            textureUnitSizeX = (texture2D.width / sprite.pixelsPerUnit) * transform.localScale.x;
             offset = position - transform.position;
             screenWidthUnits = 2 * Camera.main.orthographicSize * Screen.width / Screen.height;
 
