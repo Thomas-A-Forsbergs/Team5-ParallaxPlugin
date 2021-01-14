@@ -10,10 +10,12 @@ namespace Plugins.ParallaxScroller.Scripts.Player{
         {
             if (Input.GetAxis("Horizontal") >= 0.1){
                 player.rotation = Quaternion.LookRotation(Vector3.left);
+                
             }
-            else{
+            else if (Input.GetAxis("Horizontal") < 0.1){
                 player.rotation = Quaternion.LookRotation(Vector3.right);
-            }
+            } 
+            
             
             transform.position += new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"),0) * (playerSpeed * Time.deltaTime);
         }
