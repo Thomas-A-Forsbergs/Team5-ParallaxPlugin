@@ -8,7 +8,7 @@ namespace Plugins.ParallaxScroller.Scripts.Editor {
         public override void OnInspectorGUI() {
             base.OnInspectorGUI();
             var backgroundManager = (BackgroundManager) target;
-            if (GUILayout.Button("Add layer")) backgroundManager.InstantiateGameObject();
+            if (GUILayout.Button("Add background layer")) backgroundManager.InstantiateGameObject();
         }
     }
 }
