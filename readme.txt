@@ -24,6 +24,11 @@ Usage
 
 Credits
 --------
-Henrik Nyström programming
+Henrik Nyström - programming
 Marcus Persson - tester of plug-in
-Thomas Ahlström programming
+Thomas Ahlström - programming
+Jimmie Lundin Scherfors - sprite artist and code review
+
+Inspiration from:
+Code Monkey - Parallax Infinite Scrolling Background in Unity
+https://youtu.be/wBol2xzxCOU
