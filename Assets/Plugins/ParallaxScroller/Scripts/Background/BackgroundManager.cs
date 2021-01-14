@@ -17,7 +17,6 @@ namespace Plugins.ParallaxScroller.Scripts.Background{
         [SerializeField] bool backgroundFollowCamera;
         [Tooltip("Check if background should scroll and repeat")]
         [SerializeField] bool repeatingBackgroundX = true;
-        //[SerializeField] bool repeatingBackgroundY;
         
         public void InstantiateGameObject(){
            
@@ -38,7 +37,6 @@ namespace Plugins.ParallaxScroller.Scripts.Background{
             spriteRenderer.drawMode = spriteDrawMode;
             
             parallaxBackground.RepeatingBackgroundX = repeatingBackgroundX;
-            //parallaxBackground.RepeatingBackgroundY = repeatingBackgroundY;
             parallaxBackground.BackgroundFollowCamera = backgroundFollowCamera;
             parallaxBackground.DepthRelativeToPlayer = depthRelativeToPlayer;
 
