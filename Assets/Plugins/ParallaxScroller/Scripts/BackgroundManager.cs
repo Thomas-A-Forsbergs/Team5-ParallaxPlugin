@@ -29,6 +29,8 @@ namespace Plugins.ParallaxScroller.Scripts{
             //instance.GetComponent<ParallaxBackground>().RepeatingBackgroundY = repeatingBackgroundY;
             instance.GetComponent<ParallaxBackground>().BackgroundFollowCamera = backgroundFollowCamera;
             instance.GetComponent<ParallaxBackground>().DepthRelativeToPlayer = depthRelativeToPlayer;
+
+            instance.name = spriteRenderer.sprite.name;
         }
     }
 }
