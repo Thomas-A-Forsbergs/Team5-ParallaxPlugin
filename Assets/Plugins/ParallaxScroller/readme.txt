@@ -13,7 +13,22 @@ Open the DemoScene to try the functionality. Control the player with wasd or arr
 
 To start with your own background sprites, open the EmptyScene, and start adding sprites using the Background object's inspector.
 
-This plugin does not support collisions with ground. If this is required, you must add your own ground collider, separate from the ground parallax object. 
+Use transform scale to 
+
+Compatability
+--------------
+
+This plugin does not support collisions. If this is required, you must add your own ground collider, separate from the ground parallax object.
+
+This plugin doesn't support zoom features.
+
+
+Recomendations:
+---------------
+
+For better performance don't use a too large ortoghraphic view.
+
+
 
 Credits
 --------
