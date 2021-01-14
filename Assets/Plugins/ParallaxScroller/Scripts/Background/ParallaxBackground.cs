@@ -67,8 +67,9 @@ namespace Plugins.ParallaxScroller.Scripts.Background{
             }
 
             var deltaMovement = cameraTransform.position - lastCameraPosition;
-            transform.position += new Vector3(deltaMovement.x * depthRelativeToPlayer,
-                deltaMovement.y * depthRelativeToPlayer, 0);
+            //transform.position += new Vector3(deltaMovement.x * depthRelativeToPlayer, deltaMovement.y * (depthRelativeToPlayer - 0.3f), 0);
+            transform.position += new Vector3(deltaMovement.x * depthRelativeToPlayer, 0, 0);
+            
             lastCameraPosition = cameraTransform.position;
             if (repeatingBackgroundX)
                 if (Mathf.Abs(cameraTransform.position.x - transform.position.x) >= textureUnitSizeX){
