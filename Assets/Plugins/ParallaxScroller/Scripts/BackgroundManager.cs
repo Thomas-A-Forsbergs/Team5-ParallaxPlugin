@@ -4,24 +4,31 @@ using UnityEngine;
 namespace Plugins.ParallaxScroller.Scripts{
     [ExecuteInEditMode]
     public class BackgroundManager : MonoBehaviour{
- 
-        [Header("Cool box")]
-        [SerializeField] GameObject backgroundPrefab;
+        
+        [Header("Sprite settings")]
         [SerializeField] Sprite sprite;
-        [Tooltip("Values larger than 0 is closer to camera")]
         [SerializeField] int orderInLayer;
+        [Tooltip("Choose tiled if repeating background")]
         [SerializeField] SpriteDrawMode spriteDrawMode;
         
         [Header("Background settings")]
-        [Tooltip("")]
+        [Tooltip("1:fixed to camera, 0: relative player movement, -1: closest to camera")]
         [SerializeField,Range(-1,1)] float depthRelativeToPlayer;
         [SerializeField] bool backgroundFollowCamera;
+        [Tooltip("Check if background should scroll and repeat")]
         [SerializeField] bool repeatingBackgroundX = true;
         //[SerializeField] bool repeatingBackgroundY;
         
         public void InstantiateGameObject(){
-            var instance = Instantiate(backgroundPrefab, transform);
+           
+            var instance = new GameObject();
+            instance.AddComponent<SpriteRenderer>();
+            instance.AddComponent<ParallaxBackground>();
+            instance.transform.parent = this.transform;
+            
             var spriteRenderer = instance.GetComponent<SpriteRenderer>();
+            
+            
             spriteRenderer.sprite = sprite;
             spriteRenderer.sortingOrder = orderInLayer;
             spriteRenderer.drawMode = spriteDrawMode;
