@@ -1,8 +1,8 @@
-﻿using UnityEditor;
+﻿using Plugins.ParallaxCowProductions.ParallaxScroller.Scripts.Background;
+using UnityEditor;
 using UnityEngine;
-using Plugins.ParallaxScroller.Scripts.Background;
 
-namespace Plugins.ParallaxScroller.Scripts.Editor {
+namespace Plugins.ParallaxCowProductions.ParallaxScroller.Scripts.Editor {
     [CustomEditor(typeof(BackgroundManager))]
     public class BackgroundManagerEditor : UnityEditor.Editor {
         public override void OnInspectorGUI() {

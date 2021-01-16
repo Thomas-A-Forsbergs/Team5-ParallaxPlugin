@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Plugins.ParallaxScroller.Scripts.Background {
+namespace Plugins.ParallaxCowProductions.ParallaxScroller.Scripts.Background {
     public class ParallaxBackground : MonoBehaviour {
         [SerializeField] [Range(-1, 1)] float depthRelativeToPlayer;
         [SerializeField] bool repeatingBackgroundX;

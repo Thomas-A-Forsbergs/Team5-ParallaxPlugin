@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Plugins.ParallaxScroller.Scripts.Player {
+namespace Plugins.ParallaxCowProductions.ParallaxScroller.Scripts.Player {
     public class SamplePlayerController : MonoBehaviour {
         [SerializeField] Transform player;
         public float playerSpeed = 5f;

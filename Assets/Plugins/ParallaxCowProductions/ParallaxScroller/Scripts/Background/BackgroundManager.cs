@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Plugins.ParallaxScroller.Scripts.Background {
+namespace Plugins.ParallaxCowProductions.ParallaxScroller.Scripts.Background {
     [ExecuteInEditMode]
     public class BackgroundManager : MonoBehaviour {
         [Header("Sprite settings")]
